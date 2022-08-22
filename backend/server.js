@@ -5,9 +5,15 @@ const express = require("express");
 //express app
 const app = express();
 
+// //middleware
+app.use((req, res, next) => {
+    console.log(req.path, req.method);
+    next();
+});
+
 // routes
 app.get("/", (req, res) => {
-    res.json({ msg: "welcome to the app" });
+    res.json({ msg: "welcome to the gym buddy  app" });
 });
 
 // listen for requests
