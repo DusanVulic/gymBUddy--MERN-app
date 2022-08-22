@@ -5,16 +5,22 @@ const express = require("express");
 //express app
 const app = express();
 
+//impoting routes from router
+
+const workoutRoutes = require("./routes/workouts");
+
 // //middleware
 app.use((req, res, next) => {
     console.log(req.path, req.method);
     next();
 });
 
+// midlleware to use json
+
+app.use(express.json());
+
 // routes
-app.get("/", (req, res) => {
-    res.json({ msg: "welcome to the gym buddy  app" });
-});
+app.use("/api/workouts", workoutRoutes);
 
 // listen for requests
 
