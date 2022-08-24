@@ -8,7 +8,9 @@ import { useWorkoutsontext } from "./../hooks/useWorkoutsContext";
 const Home = () => {
   // const [workouts, setWorkouts] = useState([]);
 
-  const { workouts, dispatch } = useWorkoutsontext();
+  const { workouts, loading, dispatch } = useWorkoutsontext();
+
+  //const [loading, setloading] = useState(true);
 
   useEffect(() => {
     const fetchWorkouts = async () => {
@@ -28,6 +30,7 @@ const Home = () => {
 
   return (
     <div className="home">
+      {loading && <p>...Loading</p>}
       <div className="workouts">
         {workouts &&
           workouts.map((workout) => {

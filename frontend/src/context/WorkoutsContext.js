@@ -4,17 +4,22 @@ const WorkoutsContext = createContext();
 
 export const workoutsReducer = (state, action) => {
   if (action.type === "SET_WORKOUTS") {
-    return { workouts: action.payload };
+    return { workouts: action.payload, loading: false };
   }
 
   if (action.type === "CREATE_WORKOUT") {
-    return { workouts: [action.payload, ...state.workouts] };
+    return { workouts: [action.payload, ...state.workouts], loading: false };
   }
   return state;
 };
 
 const WorkoutsContextProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(workoutsReducer, { workouts: null });
+  const initialState = {
+    workouts: null,
+    loading: true,
+  };
+
+  const [state, dispatch] = useReducer(workoutsReducer, initialState);
 
   return (
     <WorkoutsContext.Provider value={{ ...state, dispatch }}>
