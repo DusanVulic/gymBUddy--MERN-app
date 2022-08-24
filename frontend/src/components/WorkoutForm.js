@@ -1,6 +1,10 @@
 import React, { useState } from "react";
+//importing useWorkoutContext
+import { useWorkoutsontext } from "./../hooks/useWorkoutsContext";
 
 const WorkoutForm = () => {
+  const { dispatch } = useWorkoutsontext();
+
   const [title, setTitle] = useState("");
   const [load, setLoad] = useState("");
   const [reps, setReps] = useState("");
@@ -28,6 +32,7 @@ const WorkoutForm = () => {
       setTitle("");
       setLoad("");
       setReps("");
+      dispatch({ type: "CREATE_WORKOUT", payload: json });
     }
   };
 
@@ -40,7 +45,7 @@ const WorkoutForm = () => {
         value={title}
         onChange={(e) => setTitle(e.target.value)}
       />
-      <label>load (in Kg) :</label>
+      <label>load ( in Kg ) :</label>
       <input
         type="number"
         value={load}
