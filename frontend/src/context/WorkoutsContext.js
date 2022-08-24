@@ -10,6 +10,14 @@ export const workoutsReducer = (state, action) => {
   if (action.type === "CREATE_WORKOUT") {
     return { workouts: [action.payload, ...state.workouts], loading: false };
   }
+
+  if (action.type === "DELETE_WORKOUT") {
+    return {
+      workouts: state.workouts.filter(
+        (workout) => workout._id !== action.payload._id
+      ),
+    };
+  }
   return state;
 };
 

@@ -48,6 +48,16 @@ header a {
     gap: 100px;
 }
 
+@media screen and (max-width: 640px) {
+    .home {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+}
+
+
+/* single workout */
+
 .workout-details {
     background: #fff;
     border-radius: 4px;
@@ -74,17 +84,7 @@ header a {
     top: 20px;
     right: 20px;
     cursor: pointer;
-    background: #f1f1f1;
-    padding: 6px;
-    border-radius: 50%;
-    color: #333;
-}
-
-@media screen and (max-width: 640px) {
-    .home {
-        display: flex;
-        flex-direction: column-reverse;
-    }
+    color: #8a2be2;
 }
 
 
