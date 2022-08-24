@@ -74,7 +74,7 @@ header a {
 }
 
 .workout-details p {
-    margin: 0;
+    margin: 0.25rem 0;
     font-size: 0.9em;
     color: #555;
 }
@@ -84,6 +84,9 @@ header a {
     top: 20px;
     right: 20px;
     cursor: pointer;
+    background: #f1f1f1;
+    padding: 6px;
+    border-radius: 50%;
     color: #8a2be2;
 }
 
@@ -122,4 +125,8 @@ div.error {
     color: var(--error);
     border-radius: 4px;
     margin: 20px 0;
+}
+
+input.error {
+    border: 1px solid var(--error);
 }

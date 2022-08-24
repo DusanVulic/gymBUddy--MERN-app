@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import WorkoutDetail from "../components/WorkoutDetail";
 import WorkoutForm from "../components/WorkoutForm";
 
@@ -26,7 +26,7 @@ const Home = () => {
     };
 
     fetchWorkouts();
-  }, []);
+  }, [dispatch]);
 
   return (
     <div className="home">
