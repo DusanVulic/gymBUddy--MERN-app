@@ -19,7 +19,6 @@ const userRoutes = require("./routes/user");
 
 // //middleware
 app.use((req, res, next) => {
-    console.log(req.path, req.method);
     next();
 });
 
