@@ -5,13 +5,17 @@ import App from "./App";
 
 //importing context provider
 import { WorkoutsContextProvider } from "./context/WorkoutsContext";
+//import auth context
+import { AuthContextProvider } from "./context/AuthContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <WorkoutsContextProvider>
-      <App />
-    </WorkoutsContextProvider>
+    <AuthContextProvider>
+      <WorkoutsContextProvider>
+        <App />
+      </WorkoutsContextProvider>
+    </AuthContextProvider>
   </React.StrictMode>
 );
 
