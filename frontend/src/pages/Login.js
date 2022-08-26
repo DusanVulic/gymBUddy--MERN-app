@@ -6,11 +6,12 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log(email, password);
   };
 
   return (
     <form className="login" onClick={handleSubmit}>
-      <h3>Login</h3>
+      <h3>login</h3>
       <label> email</label>
       <input
         type="email"
