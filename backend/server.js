@@ -13,8 +13,7 @@ const app = express();
 
 const workoutRoutes = require("./routes/workouts");
 
-//importing user routes
-
+//impoting user routes from router
 const userRoutes = require("./routes/user");
 
 // //middleware
@@ -28,10 +27,7 @@ app.use(express.json());
 
 // routes
 app.use("/api/workouts", workoutRoutes);
-
-//routes for AUT
 app.use("/api/user", userRoutes);
-
 //connect to DB
 
 mongoose
