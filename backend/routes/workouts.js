@@ -10,11 +10,12 @@ const {
     updateWorkout,
 } = require("../controllers/workoutController");
 
-//import model
-
-const Workout = require("../models/workoutModel");
+// require auth middleware
+const requireAuth = require("../middleware/requireAuth");
 
 const router = express.Router();
+
+router.use(requireAuth);
 
 //GET ALL WORKOUTS
 router.get("/", getAllWorkouts);
