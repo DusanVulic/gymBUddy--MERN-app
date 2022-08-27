@@ -4,11 +4,14 @@ import WorkoutForm from "../components/WorkoutForm";
 
 //importing useWorkoutContext
 import { useWorkoutsontext } from "./../hooks/useWorkoutsContext";
+//importing useAuthcontext
+import { useAuthContext } from "./../hooks/useAuthContext";
 
 const Home = () => {
   // const [workouts, setWorkouts] = useState([]);
 
   const { workouts, loading, dispatch } = useWorkoutsontext();
+  const { user } = useAuthContext();
 
   //const [loading, setloading] = useState(true);
 
@@ -17,16 +20,19 @@ const Home = () => {
       // before proxy set up :
       //const response = await fetch("http://localhost:4000/api/workouts");
       //after proxy :
-      const response = await fetch("/api/workouts");
+      const response = await fetch("/api/workouts", {
+        headers: { Authorization: `Bearer ${user.token}` },
+      });
       const data = await response.json();
 
       if (response.ok) {
         dispatch({ type: "SET_WORKOUTS", payload: data });
       }
     };
-
-    fetchWorkouts();
-  }, [dispatch]);
+    if (user) {
+      fetchWorkouts();
+    }
+  }, [dispatch, user]);
 
   return (
     <div className="home">
