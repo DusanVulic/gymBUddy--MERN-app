@@ -58,6 +58,10 @@ header a {
 
 /* single workout */
 
+.workouts h3 {
+    color: #8a2be2;
+}
+
 .workout-details {
     background: #fff;
     border-radius: 4px;

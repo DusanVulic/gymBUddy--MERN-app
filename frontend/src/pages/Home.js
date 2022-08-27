@@ -34,6 +34,19 @@ const Home = () => {
     }
   }, [dispatch, user]);
 
+  if (workouts && workouts.length === 0) {
+    return (
+      <>
+        <div className="home">
+          <div className="workouts">
+            <h3> No workouts here yet, create one ? </h3>
+          </div>
+          <WorkoutForm />
+        </div>
+      </>
+    );
+  }
+
   return (
     <div className="home">
       {loading && <p>...Loading</p>}
